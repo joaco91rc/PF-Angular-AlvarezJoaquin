@@ -1,7 +1,7 @@
 
 
 <div class="mb-3">
-    <app-user-form (userSubmitted)="onUserSubmitted($event)"></app-user-form>
+    <app-user-form [dataSource]="dataSource" [userToEdit]="userToEdit" (userSubmitted)="onUserSubmitted($event)" (userEdited)="onUserEdited($event)" (editUserEvent)="editarUsuario($event)"></app-user-form>
 </div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

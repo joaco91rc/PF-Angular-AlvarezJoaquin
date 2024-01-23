@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Users } from './pages/users/models';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   showFiller = false
+  usuarioSeleccionado: Users | null = null;
+
+  // Manejar el evento para editar el usuario
+  onEditarUsuario(usuario: Users) {
+    
+    this.usuarioSeleccionado = { ...usuario };
+  }
 }

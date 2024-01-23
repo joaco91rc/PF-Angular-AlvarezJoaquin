@@ -5,14 +5,14 @@
     <div class="col-6">
         <mat-form-field class="w-full">
             <mat-label>Nombre</mat-label>
-            <input formControlName="firstname" matInput type="text">
+            <input  formControlName="firstname" matInput type="text">
         </mat-form-field>
 
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
             <mat-label>Apellido</mat-label>
-            <input formControlName="lastname"matInput type="text">
+            <input  formControlName="lastname"matInput type="text">
 
         </mat-form-field>
     </div>
@@ -39,7 +39,7 @@
             <mat-select formControlName="role">
 
                 <mat-option value="ADMIN"> ADMIN</mat-option>
-                <mat-option value="USUARIO"> USUARIO</mat-option>
+                <mat-option value="USER"> USER</mat-option>
 
             </mat-select>
         </mat-form-field>
@@ -48,7 +48,10 @@
 
 <div class="col-12 flex justify-content-end">
 
-    <button mat-flat-button color="primary"> Guardar</button>
+    <!-- <button mat-flat-button color="primary"> Guardar</button> -->
+    <button class="mr-3" mat-flat-button color="primary" [disabled]="modoEdicion">Guardar</button>
+    <button class="mr-3" mat-flat-button color="primary" [disabled]="!modoEdicion">Editar</button>
+  
 </div>
 
 

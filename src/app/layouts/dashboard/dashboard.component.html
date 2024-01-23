@@ -1,38 +1,38 @@
-<mat-drawer-container class="dashboard-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      @if (showFiller) {
-        <p>Lorem, ipsum dolor sit amet consectetur.</p>
-      }
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-        <mat-toolbar color="primary">
-            <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-              <mat-icon>menu</mat-icon>
-            </button>
-            <span>PF ANGULAR ALVAREZ JOAQUIN</span>
-            <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-              <mat-icon>favorite</mat-icon>
-            </button>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-              <mat-icon>share</mat-icon>
-            </button>
-          </mat-toolbar>
-      
-          <div class="p-3" style="display: flex; flex-direction: column; align-items: center; justify-content: center;"  >
-            <h1  style="color: #2f6aca;" > CONTENIDO PAGINA DE USUARIOS / ALUMNOS</h1>
-            <app-users></app-users>
-            
+  <mat-drawer-container class="dashboard-container" autosize>
+      <mat-drawer #drawer class="example-sidenav" mode="side">
+        <p></p>
+        @if (showFiller) {
+          <p>Curso Angular CoderHouse</p>
+        }
+        <button (click)="showFiller = !showFiller" mat-raised-button>
+          Toggle extra text
+        </button>
+      </mat-drawer>
+    
+      <div class="example-sidenav-content">
+          <mat-toolbar color="primary">
+              <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+              <span>PF ANGULAR ALVAREZ JOAQUIN</span>
+              <span class="example-spacer"></span>
+              <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+              </button>
+              <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+              </button>
+            </mat-toolbar>
+        
+            <div class="p-3" style="display: flex; flex-direction: column; align-items: center; justify-content: center;"  >
+              <h1  style="color: #2f6aca;" > CONTENIDO PAGINA DE USUARIOS / ALUMNOS</h1>
+              <app-users (editUserEvent)="onEditarUsuario($event)"></app-users>
+              
 
-          </div>
-      
-          
-    </div>
-  
-  </mat-drawer-container>
+            </div>
+        
+            
+      </div>
+    
+    </mat-drawer-container>
   
