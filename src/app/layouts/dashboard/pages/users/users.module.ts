@@ -8,6 +8,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PipesModule } from '../pipes/pipes.module';
+import { SharedModule } from '../../../../shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
+    MatIconModule
   ],
   exports:[UsersComponent]
 })

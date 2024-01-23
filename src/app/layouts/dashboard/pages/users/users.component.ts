@@ -11,7 +11,7 @@ import { Users } from './models/index';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
-  displayedColumns: string[] = ['Id', 'NombreCompleto', 'Email', 'Rol'];
+  displayedColumns: string[] = ['Id', 'NombreCompleto', 'Email', 'Rol' ,'Acciones'];
   dataSource : Users[] =[
     {
       id:1,
@@ -76,5 +76,17 @@ export class UsersComponent {
     this.dataSource = [...this.dataSource, {...ev, id: Math.floor(Math.random() * 1000) }];
   }
 
+  editarUsuario(user: any) {
+    // Lógica para editar usuario
+  }
+  
+  eliminarUsuario(usuario: Users) {
+    const confirmacion = confirm('¿Estás seguro de que deseas eliminar a este usuario?');
 
+    if (confirmacion) {
+      this.dataSource = this.dataSource.filter(u => u.id !== usuario.id);
+      console.log('Usuario eliminado:', usuario);
+  }
+
+}
 }

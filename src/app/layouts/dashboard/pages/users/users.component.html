@@ -1,4 +1,5 @@
 
+
 <div class="mb-3">
     <app-user-form (userSubmitted)="onUserSubmitted($event)"></app-user-form>
 </div>
@@ -8,32 +9,46 @@
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
-    <!-- Position Column -->
+    <!-- Id Column -->
     <ng-container matColumnDef="Id">
-      <th mat-header-cell *matHeaderCellDef> Id. </th>
+      <th appFontsize20 color="#2f6aca" appResaltado mat-header-cell *matHeaderCellDef style="color: whitesmoke;"> Id. </th>
       <td mat-cell *matCellDef="let user"> {{user.id}} </td>
     </ng-container>
   
-    <!-- Name Column -->
+    <!-- Nombre Completo Column -->
     <ng-container matColumnDef="NombreCompleto">
-      <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
-      <td mat-cell *matCellDef="let user"> {{user.firstname + '' + user.lastname}} </td>
+      <th appFontsize20 color="#2f6aca" appResaltado mat-header-cell *matHeaderCellDef style="color: whitesmoke;"> Nombre Completo </th>
+      <td mat-cell *matCellDef="let user"> {{user | fullName}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
+    <!-- Email Column -->
     <ng-container matColumnDef="Email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+      <th appFontsize20 color="#2f6aca" appResaltado mat-header-cell *matHeaderCellDef style="color: whitesmoke;"> Email </th>
+      <td  mat-cell *matCellDef="let user"> {{user.email}} </td>
     </ng-container>
   
-    <!-- Symbol Column -->
+    <!-- Rol Column -->
     <ng-container matColumnDef="Rol">
-      <th mat-header-cell *matHeaderCellDef> Rol </th>
+      <th appFontsize20  color="#2f6aca" appResaltado mat-header-cell *matHeaderCellDef style="color: whitesmoke;"> Rol </th>
       <td mat-cell *matCellDef="let user"> {{user.role}} </td>
     </ng-container>
   
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="Acciones">
+      <th appFontsize20 color="#2f6aca" appResaltado mat-header-cell *matHeaderCellDef style="color: whitesmoke;"> Acciones </th>
+      <td mat-cell *matCellDef="let user">
+        <button mat-icon-button style="color: forestgreen;" (click)="editarUsuario(user)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button style="color: red;" (click)="eliminarUsuario(user)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
   </table>
   
   

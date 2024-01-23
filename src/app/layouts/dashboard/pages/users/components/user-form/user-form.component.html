@@ -1,4 +1,6 @@
-<form [formGroup]="userForm"  (ngSubmit)="onSubmit()" class="grid formgrid">
+<h1 appFontsize20 style="color: #2f6aca;"> Formulario Alta de Alumnos</h1>
+
+<form [formGroup]="userForm"  (ngSubmit)="onSubmit()" class="grid formgrid" >
 
     <div class="col-6">
         <mat-form-field class="w-full">
@@ -52,4 +54,4 @@
 
 </form>
 
-<pre>{{userForm.value | json}}</pre>
+<!-- <pre>{{userForm.value | json}}</pre> -->
