@@ -1,0 +1,6 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<ul *ngIf="!loading">
+
+    <li *ngFor="let user of users">{{user}}</li>
+</ul>

@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { UsersModule } from './pages/users/users.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
+import { RxjsExampleModule } from './pages/rxjs-example/rxjs-example.module';
 
 
 
@@ -23,7 +24,8 @@ import { SharedModule } from '../../shared/shared.module';
     MatIconModule,
     UsersModule,
     PipesModule,
-    SharedModule
+    SharedModule,
+    RxjsExampleModule
 
   ],
   exports:[DashboardComponent]

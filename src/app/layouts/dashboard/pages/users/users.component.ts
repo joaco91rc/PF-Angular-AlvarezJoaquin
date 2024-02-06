@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 import { Users } from './models/index';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { UsersService } from '../../../../core/services/users.service';
 
 
 
@@ -74,6 +75,10 @@ export class UsersComponent {
     },
   ];
   
+  constructor (private userService: UsersService){
+
+
+  }
   userToEdit: Users | null = null;
   
   modoEdicion: boolean = false;

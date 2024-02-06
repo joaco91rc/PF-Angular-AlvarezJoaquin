@@ -11,6 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from '../pipes/pipes.module';
 import { SharedModule } from '../../../../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
+import { UsersService } from '../../../../core/services/users.service';
+import { UsersMockService } from '../../../../core/services/users-mock.service';
+import { MY_USER_TOKEN } from '../../../../core/injection-tokens';
 
 
 @NgModule({
@@ -30,6 +33,17 @@ import { MatIconModule } from '@angular/material/icon';
     SharedModule,
     MatIconModule
   ],
-  exports:[UsersComponent]
+  exports:[UsersComponent],
+  providers:[
+  //   {
+  //   provide: UsersService,
+  //   useClass: UsersMockService
+  // }
+  UsersService,
+  {
+    provide: MY_USER_TOKEN,
+    useValue: 'MAVERICKTOKEN'
+  }
+]
 })
 export class UsersModule { }
