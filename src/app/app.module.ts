@@ -9,6 +9,7 @@ import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import es from '@angular/common/locales/es-AR'
 import { registerLocaleData } from '@angular/common';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 registerLocaleData(es);
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ registerLocaleData(es);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DashboardModule
+    DashboardModule,
+    MatProgressSpinner
   ],
   providers: [
     {provide: LOCALE_ID,

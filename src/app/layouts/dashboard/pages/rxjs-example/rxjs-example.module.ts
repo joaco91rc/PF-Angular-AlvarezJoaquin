@@ -11,6 +11,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   imports: [
     CommonModule, MatProgressSpinnerModule
   ],
-  exports:[RxjsExampleModule],
+  exports:[RxjsExampleComponent],
 })
 export class RxjsExampleModule { }

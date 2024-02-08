@@ -9,6 +9,7 @@ import { UsersModule } from './pages/users/users.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
 import { RxjsExampleModule } from './pages/rxjs-example/rxjs-example.module';
+import { RxjsIntroductionModule } from './pages/rxjs-introduction/rxjs-introduction.module';
 
 
 
@@ -25,7 +26,8 @@ import { RxjsExampleModule } from './pages/rxjs-example/rxjs-example.module';
     UsersModule,
     PipesModule,
     SharedModule,
-    RxjsExampleModule
+    RxjsExampleModule,
+    RxjsIntroductionModule,
 
   ],
   exports:[DashboardComponent]

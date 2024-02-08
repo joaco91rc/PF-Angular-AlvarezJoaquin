@@ -1,7 +1,9 @@
-import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Users } from './models/index';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UsersService } from '../../../../core/services/users.service';
+import { LoadingService } from '../../../../core/services/loading.service';
+import { forkJoin } from 'rxjs';
 
 
 
@@ -12,72 +14,33 @@ import { UsersService } from '../../../../core/services/users.service';
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss'
 })
-export class UsersComponent {
+export class UsersComponent  implements OnInit{
   @Output() editUserEvent = new EventEmitter<Users>();
  
   displayedColumns: string[] = ['Id', 'NombreCompleto', 'Email', 'Rol' ,'Acciones'];
-  dataSource : Users[] =[
-    {
-      id:1,
-      firstname:"Joaquin Andres",
-      lastname: "Alvarez",
-      email:'joaquinalvarez@gmail.com',
-      password:'123456',
-      role:'ADMIN'
-    },
-    {
-      id:2,
-      firstname:"Fabian Edgardo",
-      lastname: "Salomone",
-      email:'fabiansalomone@gmail.com',
-      password:'123456',
-      role:'USER'
-    },
-    {
-      id:3,
-      firstname:"Lara Jimena",
-      lastname: "Estrada",
-      email:'laraestrada@gmail.com',
-      password:'123456',
-      role:'ADMIN'
-    },
-    {
-      id:4,
-      firstname:"Federico Gaspar",
-      lastname: "Alvarez",
-      email:'federicoalvarezalvarez@gmail.com',
-      password:'123456',
-      role:'ADMIN'
-    },
-    {
-      id:5,
-      firstname:"Romina",
-      lastname: "Carabajal",
-      email:'rominacarabajal@gmail.com',
-      password:'123456',
-      role:'USER'
-    },
-    {
-      id:6,
-      firstname:"Julieta",
-      lastname: "Bracco",
-      email:'julietabracco@gmail.com',
-      password:'123456',
-      role:'USER'
-    },
-    {
-      id:7,
-      firstname:"Lucas Emanuel",
-      lastname: "Velazquez",
-      email:'lucasvelazquez@gmail.com',
-      password:'123456',
-      role:'USER'
-    },
-  ];
-  
-  constructor (private userService: UsersService){
+  dataSource : Users[] =[];
+  roles: string[] = [];
+  constructor (private userService: UsersService, private loadingService: LoadingService){
 
 
+  }
+  ngOnInit(): void {
+    this.getPageData();
+  }
+
+  getPageData():void{
+    this.loadingService.setIsLoading(true);
+    forkJoin([this.userService.getRoles(),
+    this.userService.getUsers()]).subscribe({
+      next: (value) =>{
+        this.roles = value[0],
+        this.dataSource = value[1]
+      },
+      complete: ()=>{
+        this.loadingService.setIsLoading(false);
+      }
+    })
+    
   }
   userToEdit: Users | null = null;
   

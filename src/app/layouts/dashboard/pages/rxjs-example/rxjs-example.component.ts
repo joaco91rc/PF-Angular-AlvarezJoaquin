@@ -33,7 +33,7 @@ export class RxjsExampleComponent {
     // }, 2000);
      setInterval(()=>{
       subscriber.next (['Goku','Gohan','Vegeta']);
-      subscriber.complete();
+      
      },1000)
 
   });
