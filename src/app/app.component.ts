@@ -11,12 +11,13 @@ export class AppComponent {
   title = 'PF-Angular-AlvarezJoaquin';
 
   isLoading = false;
-  isLoading$: Observable<Boolean>;
+  // isLoading$: Observable<Boolean>;
 
   constructor(private loadingService: LoadingService){
-    this.isLoading$ = this.loadingService.isLoading$
-    // this.loadingService.isLoading$.subscribe({
-    //   next: (value) => this.isLoading = value
-    // })
+    // this.isLoading$ = this.loadingService.isLoading$
+    this.loadingService.isLoading$.subscribe({
+      next: (value) => {
+        setTimeout(()=>{this.isLoading = value})}
+    })
   }
 }

@@ -9,8 +9,10 @@ import { UsersModule } from './pages/users/users.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
 import { RxjsExampleModule } from './pages/rxjs-example/rxjs-example.module';
-import { RxjsIntroductionModule } from './pages/rxjs-introduction/rxjs-introduction.module';
-
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { UsersComponent } from './pages/users/users.component';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -27,7 +29,21 @@ import { RxjsIntroductionModule } from './pages/rxjs-introduction/rxjs-introduct
     PipesModule,
     SharedModule,
     RxjsExampleModule,
-    RxjsIntroductionModule,
+    MatListModule,
+    RouterModule.forChild([
+      {
+        path:'home',
+        component:HomeComponent
+        },
+        {
+        path: 'users',
+        component:UsersComponent
+      },
+      {
+        path:'**',
+        redirectTo:'home'
+      }
+    ])
 
   ],
   exports:[DashboardComponent]

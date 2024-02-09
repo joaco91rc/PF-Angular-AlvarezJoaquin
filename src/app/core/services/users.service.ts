@@ -1,11 +1,12 @@
 import { Inject, Injectable } from '@angular/core';
 import { MY_USER_TOKEN } from '../injection-tokens';
 import { Users } from '../../layouts/dashboard/pages/users/models';
-import { Observable, delay, of } from 'rxjs';
+import { Observable, delay, of, tap } from 'rxjs';
+import { AlertsService } from './alerts.service';
 
 
 const ROLES_DB: string[] = ['ADMIN','USER']
-const USER_DB: Users[] = [
+let USER_DB: Users[] = [
   {
     id:1,
     firstname:"Joaquin Andres",
@@ -67,7 +68,7 @@ const USER_DB: Users[] = [
 @Injectable()
 export class UsersService {
 
-  constructor(){}
+  constructor(private alerts: AlertsService){}
    
 
    getUsers(){
@@ -77,5 +78,15 @@ export class UsersService {
 
    getRoles(): Observable<string[]>{
       return of (ROLES_DB).pipe(delay(1000))
+   }
+
+   createuser(payload: Users){
+    USER_DB.push(payload);
+    return this.getUsers();
+   }
+
+   deleteUser(userID: number){
+    USER_DB = USER_DB.filter((user)=> user.id !== userID);
+    return this.getUsers().pipe(tap(()=>  this.alerts.showSucces('Realizado', 'Se ha eliminado el usuario')));
    }
 }

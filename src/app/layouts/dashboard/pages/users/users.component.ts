@@ -3,7 +3,10 @@ import { Users } from './models/index';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UsersService } from '../../../../core/services/users.service';
 import { LoadingService } from '../../../../core/services/loading.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
+
+
+
 
 
 
@@ -49,6 +52,15 @@ export class UsersComponent  implements OnInit{
   onUserSubmitted(ev:Users):void{
     
     this.dataSource = [...this.dataSource, {...ev, id: Math.floor(Math.random() * 1000) }];
+    this.loadingService.setIsLoading(true);
+    this.userService.createuser({...ev, id: Math.floor(Math.random() * 1000) }).subscribe({
+      next: (users)=> {
+        this.dataSource = [...users]
+      },
+      complete: ()=> {
+        this.loadingService.setIsLoading(false)
+      }
+    })
   }
 
   onUserEdited(editedUser: Users): void {
@@ -72,14 +84,23 @@ export class UsersComponent  implements OnInit{
     
   }
   
-  eliminarUsuario(usuario: Users) {
+  eliminarUsuario(usuario: Users):void {
+
+
+
+
     const confirmacion = confirm('¿Estás seguro de que deseas eliminar a este usuario?');
 
     if (confirmacion) {
-      this.dataSource = this.dataSource.filter(u => u.id !== usuario.id);
-      alert(`Usuario eliminado: ${usuario.firstname} ${usuario.lastname}`);
-
-
+      this.loadingService.setIsLoading(true);
+      this.userService.deleteUser(usuario.id).subscribe({
+        next: (users)=>{
+          this.dataSource = [...users]
+        },
+        complete: ()=>{
+          this.loadingService.setIsLoading(false)
+        }
+      });
   }
 
 }

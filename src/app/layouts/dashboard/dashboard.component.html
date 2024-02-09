@@ -1,15 +1,15 @@
+  
   <mat-drawer-container class="dashboard-container" autosize>
-      <mat-drawer #drawer class="example-sidenav" mode="side">
-        <p></p>
-        @if (showFiller) {
-          <p>Curso Angular CoderHouse</p>
-        }
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-          Toggle extra text
-        </button>
+      <mat-drawer #drawer class="dashboard-sidebar" mode="side">
+       <mat-nav-list>
+        <a  #homeLink="routerLinkActive" routerLinkActive [activated]="homeLink.isActive" routerLink="home" mat-list-item>Inicio</a>
+        <a #usersLink="routerLinkActive" routerLinkActive [activated]="usersLink.isActive" routerLink="users" mat-list-item>Usuarios</a>
+        <a  (click)="logout()" mat-list-item>Cerrar Sesion</a>
+       </mat-nav-list>
       </mat-drawer>
     
       <div class="example-sidenav-content">
+        
           <mat-toolbar color="primary">
               <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                 <mat-icon>menu</mat-icon>
@@ -25,10 +25,12 @@
             </mat-toolbar>
         
             <div class="p-3" style="display: flex; flex-direction: column; align-items: center; justify-content: center;"  >
-              <h1  style="color: #2f6aca;" > CONTENIDO PAGINA DE USUARIOS / ALUMNOS</h1>
-              <app-users (editUserEvent)="onEditarUsuario($event)"></app-users>
+              <!-- <h1  style="color: #2f6aca;" > CONTENIDO PAGINA DE USUARIOS / ALUMNOS</h1>
+              <app-users (editUserEvent)="onEditarUsuario($event)"></app-users> -->
               <!-- <app-rxjs-example></app-rxjs-example> -->
               <!-- <app-rxjs-introduction></app-rxjs-introduction> -->
+              <router-outlet></router-outlet>
+              
             </div>
         
             
