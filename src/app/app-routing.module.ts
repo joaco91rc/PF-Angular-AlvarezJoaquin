@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { LoginComponent } from './layouts/auth/pages/login/login.component';
-import { UsersComponent } from './layouts/dashboard/pages/users/users.component';
-import { HomeComponent } from './layouts/dashboard/pages/home/home.component';
+
 import { NotFoundComponent } from './layouts/not-found/not-found.component';
 
 
@@ -23,9 +22,10 @@ const routes: Routes = [
     component: NotFoundComponent
   },
   {
-    path: '**',
-    redirectTo: '/404'
+    path:'**',
+    redirectTo: '/dashboard/home'
   }
+  
   
 ];
 

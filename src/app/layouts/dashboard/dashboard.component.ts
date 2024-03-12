@@ -22,7 +22,7 @@ export class DashboardComponent {
   }
   logout():void{
     // /dashboard/users ejemplo 
-    // this.router.navigate(['users'], {relativeTo:this.route})
+    //this.router.navigate(['users'], {relativeTo:this.route})
     this.router.navigate(['auth', 'login'])
 
 

@@ -70,6 +70,9 @@ export class UsersService {
 
   constructor(private alerts: AlertsService){}
    
+  getUserById(id: number | string):Observable<Users | undefined>{
+    return of (USER_DB.find((user)=>user.id ==id)).pipe(delay(2000))
+  }
 
    getUsers(){
     

@@ -14,12 +14,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { UsersService } from '../../../../core/services/users.service';
 import { UsersMockService } from '../../../../core/services/users-mock.service';
 import { MY_USER_TOKEN } from '../../../../core/injection-tokens';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     UsersComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserDetailComponent
     
   ],
   imports: [
@@ -31,7 +34,8 @@ import { MY_USER_TOKEN } from '../../../../core/injection-tokens';
     MatButtonModule,
     ReactiveFormsModule,
     SharedModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ],
   exports:[UsersComponent],
   providers:[

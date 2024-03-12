@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersComponent } from './pages/users/users.component';
 import {MatListModule} from '@angular/material/list';
+import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail.component';
 
 
 @NgModule({
@@ -37,12 +38,26 @@ import {MatListModule} from '@angular/material/list';
         },
         {
         path: 'users',
-        component:UsersComponent
-      },
+        component:UsersComponent,
+            
+          },
+          {
+            path: 'users/:id',
+            component:UserDetailComponent,
+                
+              },
+
+        {
+          path:'**',
+          redirectTo:'home'
+        },
       {
-        path:'**',
-        redirectTo:'home'
-      }
+        path: 'cursos',
+        loadChildren:()=>import('./pages/cursos/cursos.module').then(
+          (m)=>m.CursosModule
+        )
+      },
+      
     ])
 
   ],
