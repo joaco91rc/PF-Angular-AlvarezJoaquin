@@ -4,9 +4,12 @@ import { CursosComponent } from './cursos.component';
 
 const routes: Routes = [
   {
+  
     path:'',
     component:CursosComponent,
-  }
+  },
+
+ 
 ];
 
 @NgModule({

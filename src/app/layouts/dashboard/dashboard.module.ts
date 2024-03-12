@@ -47,17 +47,17 @@ import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail
                 
               },
 
-        {
-          path:'**',
-          redirectTo:'home'
-        },
+        
       {
         path: 'cursos',
         loadChildren:()=>import('./pages/cursos/cursos.module').then(
           (m)=>m.CursosModule
         )
       },
-      
+      {
+        path:'**',
+        redirectTo:'home'
+      },
     ])
 
   ],

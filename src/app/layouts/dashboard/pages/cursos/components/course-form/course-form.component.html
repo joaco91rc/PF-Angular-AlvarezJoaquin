@@ -1,0 +1,30 @@
+<h1 appFontsize20 style="color: #2f6aca;"> Formulario Alta Cursos</h1>
+
+<form [formGroup]="courseForm"  (ngSubmit)="onSubmit()" class="grid formgrid" >
+
+    <div class="col-6">
+        <mat-form-field class="w-full">
+            <mat-label>Curso</mat-label>
+            <input  formControlName="curso" matInput type="text">
+        </mat-form-field>
+
+    </div>
+    <div class="col-6">
+        <mat-form-field class="w-full">
+            <mat-label>Fecha Creacion</mat-label>
+            <input  formControlName="fechaCreacion"matInput type="text">
+
+        </mat-form-field>
+    </div>
+    
+
+<div class="col-12 flex justify-content-end">
+
+    <!-- <button mat-flat-button color="primary"> Guardar</button> -->
+    <button class="mr-3" mat-flat-button color="primary" [disabled]="modoEdicion">Guardar</button>
+    <button class="mr-3" mat-flat-button color="primary" [disabled]="!modoEdicion">Editar</button>
+  
+</div>
+
+
+</form>

@@ -4,6 +4,7 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { LoginComponent } from './layouts/auth/pages/login/login.component';
 
 import { NotFoundComponent } from './layouts/not-found/not-found.component';
+import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {
     path:'**',
     redirectTo: '/dashboard/home'
-  }
+  },
+  
   
   
 ];
