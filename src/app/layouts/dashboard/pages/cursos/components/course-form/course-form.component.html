@@ -11,8 +11,14 @@
     </div>
     <div class="col-6">
         <mat-form-field class="w-full">
-            <mat-label>Fecha Creacion</mat-label>
-            <input  formControlName="fechaCreacion"matInput type="text">
+            <mat-label>Choose a date</mat-label>
+  <input
+  formControlName="fechaCreacion"
+  
+  matInput [matDatepicker]="fechacreacionPicker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="fechacreacionPicker"></mat-datepicker-toggle>
+  <mat-datepicker #fechacreacionPicker></mat-datepicker>
 
         </mat-form-field>
     </div>

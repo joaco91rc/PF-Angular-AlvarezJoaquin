@@ -45,7 +45,7 @@ onCourseSubmitted(ev:Curso):void{
   
   this.dataSource = [...this.dataSource, {...ev, id: Math.floor(Math.random() * 1000) }];
   this.loadingService.setIsLoading(true);
-  this.cursoService.createCourse({...ev, id: Math.floor(Math.random() * 1000) }).subscribe({
+  this.cursoService.createCourse({...ev, id: this.dataSource.length + 1 }).subscribe({
     next: (cursos)=> {
       this.dataSource = [...cursos]
     },

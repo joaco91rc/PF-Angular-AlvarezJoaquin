@@ -10,6 +10,7 @@ import es from '@angular/common/locales/es-AR'
 import { registerLocaleData } from '@angular/common';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatNativeDateModule } from '@angular/material/core';
 
 registerLocaleData(es);
 @NgModule({
@@ -22,7 +23,8 @@ registerLocaleData(es);
     AppRoutingModule,
     BrowserAnimationsModule,
     DashboardModule,
-    MatProgressSpinner
+    MatProgressSpinner,
+    MatNativeDateModule
   ],
   providers: [
     {provide: LOCALE_ID,
