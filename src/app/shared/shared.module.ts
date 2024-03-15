@@ -4,17 +4,20 @@ import { FullNamePipe } from './full-name.pipe';
 import { ResaltadoDirective } from './resaltado.directive';
 import { Fontsize20Directive } from './fontsize20.directive';
 import {MatTableModule} from '@angular/material/table';
-import {MatButtonModule} from '@angular/material/button';
+import {MatButtonModule, MatIconButton} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { ValidationErrorsPipe } from './validation-errors.pipe';
 @NgModule({
   declarations: [
     FullNamePipe,
     ResaltadoDirective,
     Fontsize20Directive,
+    ValidationErrorsPipe,
     
   ],
   imports: [
@@ -29,6 +32,9 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatInputModule]
+    MatInputModule,
+    MatInputModule,
+  MatIconModule,
+ValidationErrorsPipe]
 })
 export class SharedModule { }

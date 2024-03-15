@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { UsersComponent } from './pages/users/users.component';
 import {MatListModule} from '@angular/material/list';
 import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail.component';
+import { adminGuard } from '../../core/guards/admin.guard';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail
         },
         {
         path: 'users',
+        canActivate:[adminGuard],
         loadChildren:()=>import('./pages/users/users.module').then(
           (m)=>m.UsersModule
         )

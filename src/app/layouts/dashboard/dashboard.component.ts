@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Users } from './pages/users/models';
 import {  ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ export class DashboardComponent {
   showFiller = false
   usuarioSeleccionado: Users | null = null;
 
-  constructor(private router: Router, private route: ActivatedRoute){
+  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService){
 
   }
 
@@ -23,7 +24,7 @@ export class DashboardComponent {
   logout():void{
     // /dashboard/users ejemplo 
     //this.router.navigate(['users'], {relativeTo:this.route})
-    this.router.navigate(['auth', 'login'])
+    this.authService.logout();
 
 
   }

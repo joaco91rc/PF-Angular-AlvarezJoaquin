@@ -5,11 +5,13 @@ import { LoginComponent } from './layouts/auth/pages/login/login.component';
 
 import { NotFoundComponent } from './layouts/not-found/not-found.component';
 import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
+import { authGuard } from './core/guards/auth.guard';
 
 
 const routes: Routes = [
   {
     path:'dashboard',
+    canActivate:[authGuard],
     component: DashboardComponent,
      loadChildren: ()=> import('./layouts/dashboard/dashboard.module')
      .then((m)=>m.DashboardModule)
