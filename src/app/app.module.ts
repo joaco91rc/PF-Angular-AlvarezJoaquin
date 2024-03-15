@@ -11,6 +11,7 @@ import { registerLocaleData } from '@angular/common';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(es);
 @NgModule({
@@ -24,7 +25,8 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     DashboardModule,
     MatProgressSpinner,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID,
