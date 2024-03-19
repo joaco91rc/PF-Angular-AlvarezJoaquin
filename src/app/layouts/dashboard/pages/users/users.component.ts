@@ -53,9 +53,9 @@ export class UsersComponent  implements OnInit{
     
     this.dataSource = [...this.dataSource, {...ev, id: Math.floor(Math.random() * 1000) }];
     this.loadingService.setIsLoading(true);
-    this.userService.createuser({...ev, id: Math.floor(Math.random() * 1000) }).subscribe({
+    this.userService.createuser(ev).subscribe({
       next: (users)=> {
-        this.dataSource = [...users]
+        this.dataSource = users
       },
       complete: ()=> {
         this.loadingService.setIsLoading(false)
